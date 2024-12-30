@@ -19,7 +19,7 @@ final class NetworkManager: NetworkManagerProtocol {
         self.decoder.dateDecodingStrategy = .iso8601
     }
 
-    func send<T>(path: NetworkPath, method: NetworkMethod, type: T.Type, body: (any Encodable)?, paramater: Alamofire.Parameters?) async -> AnyPublisher<T, NetworkError> where T: Decodable {
+    func send<T>(path: NetworkPath, method: NetworkMethod, type: T.Type, body: (any Encodable)?, paramater: Alamofire.Parameters?) -> AnyPublisher<T, NetworkError> where T: Decodable {
         let url = config.baseURL + path.rawValue
         var request: DataRequest
 
@@ -38,14 +38,16 @@ final class NetworkManager: NetworkManagerProtocol {
             )
         }
 
-        let response = await request.validate()
-            .serializingDecodable(T.self, decoder: decoder)
-            .response
-
-        guard let responseValue = response.value else {
-            return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
+        return Future { promise in
+            request.validate()
+                .responseDecodable(of: T.self, decoder: self.decoder) { response in
+                    if let responseValue = response.value {
+                        promise(.success(responseValue))
+                    } else {
+                        promise(.failure(NetworkError.invalidResponse))
+                    }
+                }
         }
-
-        return Just(responseValue).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
+        .eraseToAnyPublisher()
     }
 }

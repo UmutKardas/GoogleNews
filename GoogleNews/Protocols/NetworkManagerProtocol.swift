@@ -9,5 +9,5 @@ import Alamofire
 import Combine
 
 protocol NetworkManagerProtocol {
-    func send<T>(path: NetworkPath, method: NetworkMethod, type: T.Type, body: (any Encodable)?, paramater: Alamofire.Parameters?) async -> AnyPublisher<T, NetworkError> where T: Decodable
+    func send<T>(path: NetworkPath, method: NetworkMethod, type: T.Type, body: (any Encodable)?, paramater: Alamofire.Parameters?) -> AnyPublisher<T, NetworkError> where T: Decodable
 }
