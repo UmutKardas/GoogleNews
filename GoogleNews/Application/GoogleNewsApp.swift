@@ -11,7 +11,9 @@ import SwiftUI
 struct GoogleNewsApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeUIView()
+            NavigationStack {
+                HomeUIView()
+            }
         }
     }
 }

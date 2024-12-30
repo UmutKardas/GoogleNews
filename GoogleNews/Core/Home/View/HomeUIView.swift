@@ -14,9 +14,24 @@ struct HomeUIView: View {
         VStack {
             Text("Hello, World!")
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomToolBarItem(title: nil, titleStyle: nil, image: Image(systemName: "magnifyingglass"), imageStyle: nil, action: nil)
+            }
+
+            ToolbarItem(placement: .principal) {
+                CustomToolBarItem(title: nil, titleStyle: nil, image: Image("googleNewsLogo"), imageStyle: ImageStyle(frame: CGSize(width: 40, height: 40)), action: nil)
+            }
+
+            ToolbarItem(placement: .topBarTrailing) {
+                CustomToolBarItem(title: nil, titleStyle: nil, image: Image(systemName: "person.circle.fill"), imageStyle: nil, action: nil)
+            }
+        }
     }
 }
 
 #Preview {
-    HomeUIView()
+    NavigationStack {
+        HomeUIView()
+    }
 }
