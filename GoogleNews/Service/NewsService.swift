@@ -14,7 +14,7 @@ final class NewsService: NewsProtocol {
         self.network = network
     }
 
-    func fetchNews() -> AnyPublisher<News, NetworkError> {
-        return network.send(path: .getLatestNews, method: .GET, type: News.self, body: nil, paramater: nil)
+    func fetchNews() -> AnyPublisher<[News], NetworkError> {
+        return network.send(path: .getLatestNews, method: .GET, type: [News].self, body: nil, paramater: nil)
     }
 }

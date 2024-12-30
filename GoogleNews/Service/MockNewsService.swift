@@ -9,14 +9,14 @@ import Combine
 import Foundation
 
 final class MockNewsService: NewsProtocol {
-    func fetchNews() async -> AnyPublisher<News, NetworkError> {
+    func fetchNews() -> AnyPublisher<[News], NetworkError> {
         guard let path = Bundle.main.path(forResource: "mockNews", ofType: "json") else {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
 
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let news = try JSONDecoder().decode(News.self, from: data)
+            let news = try JSONDecoder().decode([News].self, from: data)
             return Just(news).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
         }
         catch {

@@ -8,36 +8,36 @@
 import Foundation
 
 struct News: Identifiable, Decodable {
-    let id: UUID
-    let author: String
-    let authorTopicId: String
-    let date: TimeInterval
-    let domain: String
+    let id: Int?
+    let author: String?
+    let authorTopicId: String?
+    let date: TimeInterval?
+    let domain: String?
     let image: String?
-    let isVideo: Bool
-    let link: String
+    let isVideo: Bool?
+    let link: String?
     let preview: String?
-    let pubLogo: String
-    let pubLogoLarge: String
-    let publisher: String
-    let relatedArticles: [RelatedArticle]
-    let title: String
-    let topicId: String
+    let pubLogo: String?
+    let pubLogoLarge: String?
+    let publisher: String?
+    let relatedArticles: [RelatedArticle]?
+    let title: String?
+    let topicId: String?
 }
 
 struct RelatedArticle: Identifiable, Decodable {
-    let id: UUID
-    let author: String
-    let authorTopicId: String
-    let date: TimeInterval
-    let domain: String
+    let id: Int?
+    let author: String?
+    let authorTopicId: String?
+    let date: TimeInterval?
+    let domain: String?
     let image: String?
-    let isVideo: Bool
-    let link: String
+    let isVideo: Bool?
+    let link: String?
     let preview: String?
-    let pubLogo: String
-    let pubLogoLarge: String
-    let publisher: String
-    let title: String
-    let topicId: String
+    let pubLogo: String?
+    let pubLogoLarge: String?
+    let publisher: String?
+    let title: String?
+    let topicId: String?
 }

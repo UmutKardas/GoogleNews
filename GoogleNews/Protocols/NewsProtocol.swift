@@ -8,5 +8,5 @@
 import Combine
 
 protocol NewsProtocol {
-    func fetchNews() async -> AnyPublisher<News, NetworkError>
+    func fetchNews() -> AnyPublisher<[News], NetworkError>
 }
