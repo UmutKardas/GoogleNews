@@ -49,18 +49,23 @@ struct HomeUIView: View {
                     Text("Top Stories")
                         .font(.title2)
                         .fontWeight(.medium)
-                    
+                        .padding(.top, 5)
+
                     Spacer()
-                    
+
                     Image(systemName: "chevron.right.circle.fill")
                         .resizable()
                         .frame(width: 30, height: 30)
                 }
-                
-                
-                
-                
+                .padding(.bottom, 15)
+
+                HeadlineNewsCell(news: viewModel.news.first)
             }
+            .padding(.top, 15)
+
+            // MARK: - News
+
+            Spacer()
         }
         .padding(.horizontal, 20)
         .toolbar {
