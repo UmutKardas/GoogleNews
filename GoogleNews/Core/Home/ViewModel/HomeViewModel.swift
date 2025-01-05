@@ -30,7 +30,6 @@ final class HomeViewModel: ObservableObject {
             }
         } receiveValue: { [weak self] news in
             self?.news = news
-            print(news)
         }
         .store(in: &subscriptions)
     }

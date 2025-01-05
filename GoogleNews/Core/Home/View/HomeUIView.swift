@@ -65,7 +65,7 @@ struct HomeUIView: View {
                 .padding(.top, 15)
                 
                 // MARK: - News
-                
+
                 ForEach(viewModel.news.dropFirst()) { news in
                     NewsCell(news: news)
                 }
