@@ -8,7 +8,7 @@
 import Foundation
 
 struct News: Identifiable, Decodable {
-    let id: Int?
+    let id: String = UUID().uuidString
     let author: String?
     let authorTopicId: String?
     let date: TimeInterval?
