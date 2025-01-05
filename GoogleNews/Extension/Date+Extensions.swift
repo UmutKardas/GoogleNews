@@ -27,4 +27,11 @@ extension Date {
 
         return "\(components.second ?? 0)s"
     }
+
+    func formatted(as format: String = "EEEE, d MMMM") -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = Locale(identifier: "en_US")
+        return formatter.string(from: self)
+    }
 }

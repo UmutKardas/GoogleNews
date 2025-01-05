@@ -11,7 +11,7 @@ import Foundation
 final class HomeViewModel: ObservableObject {
     @Published var news: [News] = []
     @Published var error: String?
-
+    @Published var date: Date = .init()
     private let service: NewsProtocol
     private var subscriptions = Set<AnyCancellable>()
 
