@@ -24,6 +24,7 @@ struct HomeUIView: View {
                         Text(viewModel.date.formatted(as: "EEEE, d MMMM"))
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                            .padding(.leading, 5)
                     }
                     
                     Spacer()
