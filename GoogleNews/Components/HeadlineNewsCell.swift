@@ -28,7 +28,7 @@ struct HeadlineNewsCell: View {
                 .overlay(Circle().stroke(Color.white, lineWidth: 1))
 
             Text("\(news?.relatedArticles?.first?.title ?? "")")
-                .font(.title3)
+                .font(.system(size: 20, weight: .medium))
 
             HStack {
                 Text("\(news?.relatedArticles?.first?.date.map { Date(timeIntervalSince1970: $0).timeAgo() } ?? "")")
