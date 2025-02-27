@@ -15,6 +15,7 @@
 
 - **SwiftUI**: Framework for building the user interface.
 - **Combine**: For managing asynchronous data flows and updates.
+- **Swinject**: For implementing dependency injection.
 - **Alamofire**: For making network requests and handling API responses.
 - **Kingfisher**: For image caching and downloading.
 - **News API**: To fetch real-time news articles.
